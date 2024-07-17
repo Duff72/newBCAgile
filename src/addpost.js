@@ -1,3 +1,4 @@
+// AddPost.js
 import './App.css';
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
@@ -7,12 +8,16 @@ import Button from '@mui/material/Button';
 export default function AddPost({ addPost }) {
   const [id, setId] = useState('');
   const [post, setPost] = useState('');
+  const [tags, setTags] = useState('');
+  const [dateCreated, setDateCreated] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addPost(id, post);
+    setDateCreated(new Date().toISOString()); // Set the current date and time
+    addPost(id, post, tags, new Date().toISOString());
     setId('');
     setPost('');
+    setTags('');
   };
 
   return (
@@ -43,6 +48,13 @@ export default function AddPost({ addPost }) {
         rows={4} 
         value={post}
         onChange={(e) => setPost(e.target.value)}
+      />
+        <TextField 
+        id="tags" 
+        label="Tags" 
+        variant="outlined" 
+        value={tags}
+        onChange={(e) => setTags(e.target.value)}
       />
       <Button variant="contained" type="submit">Submit</Button>
     </Box>
