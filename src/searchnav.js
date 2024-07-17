@@ -20,8 +20,10 @@ const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
+  border: '1px solid transparent', // initial border
   '&:hover': {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
+    border: '1px solid black', // black border on hover
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
@@ -40,11 +42,11 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: 'teal',
+  color: '#2D5D7B',
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
+  color: '#333333', // dark grey text
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -156,7 +158,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ bgcolor: 'black' }}>
+      <AppBar position="fixed" sx={{ bgcolor: 'white' }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -165,9 +167,16 @@ export default function PrimarySearchAppBar() {
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-            <MenuIcon sx={{ color: 'teal' }} />
+            <MenuIcon sx={{ color: '#2D5D7B' }} />
           </IconButton>
-          Fenix
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ display: { xs: 'none', sm: 'block' }, color: '#2D5D7B' }}
+          >
+            MUI
+          </Typography>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -179,9 +188,9 @@ export default function PrimarySearchAppBar() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <IconButton size="large" aria-label="show 4 new mails" color="white">
               <Badge badgeContent={4} color="error">
-                <MailIcon sx={{ color: 'teal' }} />
+                <MailIcon sx={{ color: '#2D5D7B' }} />
               </Badge>
             </IconButton>
             <IconButton
@@ -190,7 +199,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Badge badgeContent={17} color="error">
-                <NotificationsIcon sx={{ color: 'teal' }} />
+                <NotificationsIcon sx={{ color: '#2D5D7B' }} />
               </Badge>
             </IconButton>
             <IconButton
@@ -202,7 +211,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle sx={{ color: 'teal' }} />
+              <AccountCircle sx={{ color: '#2D5D7B' }} />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
@@ -214,7 +223,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon sx={{ color: 'teal' }} />
+              <MoreIcon sx={{ color: '#2D5D7B' }} />
             </IconButton>
           </Box>
         </Toolbar>
