@@ -15,6 +15,8 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import Avatar from "@mui/material/Avatar";
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -175,7 +177,7 @@ export default function PrimarySearchAppBar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' }, color: '#2D5D7B' }}
           >
-            MUI
+            FENIX
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -187,6 +189,9 @@ export default function PrimarySearchAppBar() {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
+            <Avatar src="images/2.jpg"/>
+          </Box>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="white">
               <Badge badgeContent={4} color="error">
