@@ -32,10 +32,7 @@ export default function ShowPosts({ posts, editPost, deletePost }) {
 
   return (
     <React.Fragment>
-      {posts
-      .slice()
-      .sort((a, b) => new Date(b.dateCreated) - new Date(a.dateCreated))
-      .map((post, index) => (
+      {posts.map((post, index) => (
         <Card key={index} sx={{ marginBottom: 2 }}>
           <CardHeader
             avatar={
